@@ -1,0 +1,10 @@
+C:\Users\matt_\source\repos\tryPizza\tryPizza\bin\Debug\tryPizza.exe.config
+C:\Users\matt_\source\repos\tryPizza\tryPizza\bin\Debug\tryPizza.exe
+C:\Users\matt_\source\repos\tryPizza\tryPizza\bin\Debug\tryPizza.pdb
+C:\Users\matt_\source\repos\tryPizza\tryPizza\obj\Debug\tryPizza.csprojAssemblyReference.cache
+C:\Users\matt_\source\repos\tryPizza\tryPizza\obj\Debug\tryPizza.Form1.resources
+C:\Users\matt_\source\repos\tryPizza\tryPizza\obj\Debug\tryPizza.Properties.Resources.resources
+C:\Users\matt_\source\repos\tryPizza\tryPizza\obj\Debug\tryPizza.csproj.GenerateResource.cache
+C:\Users\matt_\source\repos\tryPizza\tryPizza\obj\Debug\tryPizza.csproj.CoreCompileInputs.cache
+C:\Users\matt_\source\repos\tryPizza\tryPizza\obj\Debug\tryPizza.exe
+C:\Users\matt_\source\repos\tryPizza\tryPizza\obj\Debug\tryPizza.pdb
