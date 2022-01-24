@@ -51,7 +51,34 @@ namespace tryPizza
             }
             else
             {
-                MessageBox.Show("error all textboxes must be filled");
+                if (idTB.Text == "" && nameTB.Text == "" && ownTB.Text == "")
+                {
+                    MessageBox.Show("error all textboxes must be filled");
+                }
+                else if (idTB.Text == "" && nameTB.Text == "" && ownTB.Text != "")
+                {
+                    MessageBox.Show("error id textbox and name textbox must be completed");
+                }
+                else if (idTB.Text == "" && nameTB.Text != "" && ownTB.Text == "")
+                {
+                    MessageBox.Show("error id textbox and own textbox must be completed");
+                }
+                else if (idTB.Text == "" && nameTB.Text != "" && ownTB.Text != "")
+                {
+                    MessageBox.Show("error id textbox must be completed");
+                }
+                else if (idTB.Text != "" && nameTB.Text == "" && ownTB.Text == "")
+                {
+                    MessageBox.Show("error name textbox and own textbox must be completed");
+                }
+                else if (idTB.Text != "" && nameTB.Text != "" && ownTB.Text == "")
+                {
+                    MessageBox.Show("error own textbox must be completed");
+                }
+                else if (idTB.Text != "" && nameTB.Text == "" && ownTB.Text != "")
+                {
+                    MessageBox.Show("error name textbox must be completed");
+                }
             }
         }
     }
