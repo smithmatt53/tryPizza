@@ -51,7 +51,7 @@ namespace tryPizza
             }
             else
             {
-                MessageBox.Show("error");
+                MessageBox.Show("error all textboxes must be filled");
             }
         }
     }
