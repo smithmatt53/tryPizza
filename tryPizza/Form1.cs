@@ -22,17 +22,19 @@ namespace tryPizza
         {
            
             SqlConnection cnn;
-            //connetionString = @"Data Source=WIN-50GP30FGO75;Initial Catalog=Demodb;User ID=sa;Password=demol23";
             string connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\Users\matt_\OneDrive\Documents\pizza.mdf;";
             cnn = new SqlConnection(connetionString);
             cnn.Open();
-            string sql = "select * from dbo.pizza";
+
+            // how to call querry
+            //string sql = "select * from dbo.pizza";
 
             SqlCommand command;
             SqlDataReader dataReader;
             string output = "";
 
-            command = new SqlCommand(sql, cnn);
+            // how to call a stored procesure
+            command = new SqlCommand("GetAllPizza", cnn);
             dataReader = command.ExecuteReader();
 
             while(dataReader.Read())
@@ -40,6 +42,7 @@ namespace tryPizza
                 output = output + dataReader.GetValue(0) + " " + dataReader.GetValue(1) + " " + dataReader.GetValue(2) + "\n";
             }
             MessageBox.Show(output);
+            command.Dispose();
             cnn.Close();
         }
 
