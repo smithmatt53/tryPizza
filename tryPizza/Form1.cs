@@ -97,7 +97,8 @@ namespace tryPizza
         public int ReturnNextId()
         {
             cnn.Open();
-            int count = 0;
+            //int count = 0;
+            string output = "";
 
             SqlCommand command;
             SqlDataReader dataReader;
@@ -108,13 +109,16 @@ namespace tryPizza
 
             while (dataReader.Read())
             {
-                count++;
+                output = (string)dataReader.GetValue(0).ToString();
+                
+                //count++;
             }
-
+            int tocount = int.Parse(output);
             command.Dispose();
             cnn.Close();
 
-            return count + 1;
+            //return count + 1;
+            return tocount + 1;
         }
     }
 }
