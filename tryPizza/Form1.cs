@@ -10,9 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace tryPizza
-{
-
-    
+{ 
     public partial class Form1 : Form
     {
         static public string connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\Users\matt_\OneDrive\Documents\pizza.mdf;";
