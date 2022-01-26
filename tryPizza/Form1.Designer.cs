@@ -31,10 +31,8 @@ namespace tryPizza
         {
             this.button1 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.idTB = new System.Windows.Forms.TextBox();
             this.nameTB = new System.Windows.Forms.TextBox();
             this.glutenTB = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -59,13 +57,6 @@ namespace tryPizza
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // idTB
-            // 
-            this.idTB.Location = new System.Drawing.Point(542, 163);
-            this.idTB.Name = "idTB";
-            this.idTB.Size = new System.Drawing.Size(184, 22);
-            this.idTB.TabIndex = 2;
-            // 
             // nameTB
             // 
             this.nameTB.Location = new System.Drawing.Point(542, 211);
@@ -79,15 +70,6 @@ namespace tryPizza
             this.glutenTB.Name = "glutenTB";
             this.glutenTB.Size = new System.Drawing.Size(184, 22);
             this.glutenTB.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(490, 168);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "ID:";
             // 
             // label2
             // 
@@ -115,10 +97,8 @@ namespace tryPizza
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.glutenTB);
             this.Controls.Add(this.nameTB);
-            this.Controls.Add(this.idTB);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -132,10 +112,8 @@ namespace tryPizza
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.TextBox idTB;
         private System.Windows.Forms.TextBox nameTB;
         private System.Windows.Forms.TextBox glutenTB;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
     }

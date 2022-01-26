@@ -49,14 +49,15 @@ namespace tryPizza
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            int id = ReturnNextId();
             cnn.Open();
 
-            if (idTB.Text != "" && nameTB.Text != "" && glutenTB.Text != "")
+            if (nameTB.Text != "" && glutenTB.Text != "")
             {
                 SqlCommand command;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 string sql = "";
-                sql = $"Insert into dbo.Pizza (Id, Name, IsGlutenFree) values({int.Parse(idTB.Text)}, '{nameTB.Text}', {int.Parse(glutenTB.Text)} );";
+                sql = $"Insert into dbo.Pizza (Id, Name, IsGlutenFree) values({id}, '{nameTB.Text}', {int.Parse(glutenTB.Text)} );";
                 command = new SqlCommand(sql, cnn);
                 adapter.InsertCommand = new SqlCommand(sql, cnn);
                 adapter.InsertCommand.ExecuteNonQuery();
@@ -67,31 +68,27 @@ namespace tryPizza
             }
             else
             {
-                if (idTB.Text == "" && nameTB.Text == "" && glutenTB.Text == "")
+                if (nameTB.Text == "" && glutenTB.Text == "")
                 {
                     MessageBox.Show("error all textboxes must be filled");
                 }
-                else if (idTB.Text == "" && nameTB.Text == "" && glutenTB.Text != "")
+                else if ( nameTB.Text == "" && glutenTB.Text != "")
                 {
                     MessageBox.Show("error id textbox and name textbox must be completed");
                 }
-                else if (idTB.Text == "" && nameTB.Text != "" && glutenTB.Text == "")
+                else if (nameTB.Text != "" && glutenTB.Text == "")
                 {
                     MessageBox.Show("error id textbox and own textbox must be completed");
                 }
-                else if (idTB.Text == "" && nameTB.Text != "" && glutenTB.Text != "")
-                {
-                    MessageBox.Show("error id textbox must be completed");
-                }
-                else if (idTB.Text != "" && nameTB.Text == "" && glutenTB.Text == "")
+                else if ( nameTB.Text == "" && glutenTB.Text == "")
                 {
                     MessageBox.Show("error name textbox and own textbox must be completed");
                 }
-                else if (idTB.Text != "" && nameTB.Text != "" && glutenTB.Text == "")
+                else if ( nameTB.Text != "" && glutenTB.Text == "")
                 {
-                    MessageBox.Show("error own textbox must be completed");
+                    MessageBox.Show("error glutenfree textbox must be completed");
                 }
-                else if (idTB.Text != "" && nameTB.Text == "" && glutenTB.Text != "")
+                else if (nameTB.Text == "" && glutenTB.Text != "")
                 {
                     MessageBox.Show("error name textbox must be completed");
                 }
@@ -100,15 +97,25 @@ namespace tryPizza
 
         public int ReturnNextId()
         {
+            cnn.Open();
             int count = 0;
-            /*
+
+            SqlCommand command;
+            SqlDataReader dataReader;
+
+            // how to call a stored procesure
+            command = new SqlCommand("GetAllPizza", cnn);
+            dataReader = command.ExecuteReader();
+
             while (dataReader.Read())
             {
-                output = output + dataReader.GetValue(0) + " " + dataReader.GetValue(1) + " " + dataReader.GetValue(2) + "\n";
+                count++;
             }
-            */
 
-            return count;
+            command.Dispose();
+            cnn.Close();
+
+            return count + 1;
         }
     }
 }
