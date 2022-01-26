@@ -50,10 +50,11 @@ namespace tryPizza
         private void addButton_Click(object sender, EventArgs e)
         {
             int id = ReturnNextId();
-            cnn.Open();
+            
 
             if (nameTB.Text != "" && glutenTB.Text != "")
             {
+                cnn.Open();
                 SqlCommand command;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 string sql = "";
