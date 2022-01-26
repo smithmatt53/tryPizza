@@ -33,7 +33,7 @@ namespace tryPizza
             this.addButton = new System.Windows.Forms.Button();
             this.idTB = new System.Windows.Forms.TextBox();
             this.nameTB = new System.Windows.Forms.TextBox();
-            this.ownTB = new System.Windows.Forms.TextBox();
+            this.glutenTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,12 +73,12 @@ namespace tryPizza
             this.nameTB.Size = new System.Drawing.Size(184, 22);
             this.nameTB.TabIndex = 3;
             // 
-            // ownTB
+            // glutenTB
             // 
-            this.ownTB.Location = new System.Drawing.Point(542, 257);
-            this.ownTB.Name = "ownTB";
-            this.ownTB.Size = new System.Drawing.Size(184, 22);
-            this.ownTB.TabIndex = 4;
+            this.glutenTB.Location = new System.Drawing.Point(542, 257);
+            this.glutenTB.Name = "glutenTB";
+            this.glutenTB.Size = new System.Drawing.Size(184, 22);
+            this.glutenTB.TabIndex = 4;
             // 
             // label1
             // 
@@ -101,11 +101,12 @@ namespace tryPizza
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(490, 257);
+            this.label3.Location = new System.Drawing.Point(452, 257);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(87, 17);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Own:";
+            this.label3.Text = "Gluten Free:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
@@ -115,7 +116,7 @@ namespace tryPizza
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ownTB);
+            this.Controls.Add(this.glutenTB);
             this.Controls.Add(this.nameTB);
             this.Controls.Add(this.idTB);
             this.Controls.Add(this.addButton);
@@ -133,7 +134,7 @@ namespace tryPizza
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox idTB;
         private System.Windows.Forms.TextBox nameTB;
-        private System.Windows.Forms.TextBox ownTB;
+        private System.Windows.Forms.TextBox glutenTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
