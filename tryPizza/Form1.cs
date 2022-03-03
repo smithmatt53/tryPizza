@@ -6,8 +6,10 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using tryPizza.Data;
 
 namespace tryPizza
 { 
@@ -15,34 +17,26 @@ namespace tryPizza
     {
         static public string connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\Users\matt_\OneDrive\Documents\pizza.mdf;";
         SqlConnection cnn = new SqlConnection(connetionString);
+        private readonly IPizzaItemData _pizzaItemData;
 
         public Form1()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public Form1(IPizzaItemData pizzaItemData)
         {
-            cnn.Open();
+            _pizzaItemData = pizzaItemData;
+        }
 
-            // how to call querry
-            //string sql = "select * from dbo.pizza";
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            IPizzaItemData user = new PizzaSql();
+            //Task<string> getPizza = user.GetPizza();
+            Task<string> getPizza = user.GetPizza();
+            await getPizza;
 
-            SqlCommand command;
-            SqlDataReader dataReader;
-            string output = "";
+            MessageBox.Show(getPizza.Result);
 
-            // how to call a stored procesure
-            command = new SqlCommand("GetAllPizza", cnn);
-            dataReader = command.ExecuteReader();
-
-            while(dataReader.Read())
-            {
-                output = output + dataReader.GetValue(0) + " " + dataReader.GetValue(1) + " " + dataReader.GetValue(2) + "\n";
-            }
-            MessageBox.Show(output);
-            command.Dispose();
-            cnn.Close();
         }
 
         private void addButton_Click(object sender, EventArgs e)
