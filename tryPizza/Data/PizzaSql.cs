@@ -62,15 +62,6 @@ namespace tryPizza.Data
                 string connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\Users\matt_\OneDrive\Documents\pizza.mdf;";
                 using (SqlConnection conn = new SqlConnection(connetionString))
                 {
-                    /*
-                    var cmd = new SqlCommand
-                    {
-                        //CommandType = CommandType.StoredProcedure,
-                        //CommandText = "GetAllPizza"
-
-                    };*/
-                    //cmd.Connection = conn;
-                    //cmd.Connection.Open();
                     conn.Open();
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
