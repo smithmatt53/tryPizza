@@ -31,7 +31,6 @@ namespace tryPizza
         private async void button1_Click(object sender, EventArgs e)
         {
             IPizzaItemData user = new PizzaSql();
-            //Task<string> getPizza = user.GetPizza();
             Task<string> getPizza = user.GetPizza();
             await getPizza;
 
@@ -39,24 +38,16 @@ namespace tryPizza
 
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private async void addButton_Click(object sender, EventArgs e)
         {
             int id = ReturnNextId();
             
 
             if (nameTB.Text != "" && glutenTB.Text != "")
             {
-                cnn.Open();
-                SqlCommand command;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                string sql = "";
-                sql = $"Insert into dbo.Pizza (Id, Name, IsGlutenFree) values({id}, '{nameTB.Text}', {int.Parse(glutenTB.Text)} );";
-                command = new SqlCommand(sql, cnn);
-                adapter.InsertCommand = new SqlCommand(sql, cnn);
-                adapter.InsertCommand.ExecuteNonQuery();
-                command.Dispose();
-                cnn.Close();
-
+                IPizzaItemData user = new PizzaSql();
+                Task AddPizza = user.AddPizza(id, nameTB.Text, glutenTB.Text);
+                await AddPizza;
                 MessageBox.Show("Added!");
             }
             else
@@ -67,23 +58,15 @@ namespace tryPizza
                 }
                 else if ( nameTB.Text == "" && glutenTB.Text != "")
                 {
-                    MessageBox.Show("error id textbox and name textbox must be completed");
+                    MessageBox.Show("error name textbox must be completed");
                 }
                 else if (nameTB.Text != "" && glutenTB.Text == "")
                 {
-                    MessageBox.Show("error id textbox and own textbox must be completed");
+                    MessageBox.Show("error, gluten free textbox must be completed");
                 }
                 else if ( nameTB.Text == "" && glutenTB.Text == "")
                 {
-                    MessageBox.Show("error name textbox and own textbox must be completed");
-                }
-                else if ( nameTB.Text != "" && glutenTB.Text == "")
-                {
-                    MessageBox.Show("error glutenfree textbox must be completed");
-                }
-                else if (nameTB.Text == "" && glutenTB.Text != "")
-                {
-                    MessageBox.Show("error name textbox must be completed");
+                    MessageBox.Show("error name textbox and gluten free textbox must be completed");
                 }
             }
         }
